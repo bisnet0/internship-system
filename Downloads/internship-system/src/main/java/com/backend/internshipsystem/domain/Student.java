@@ -17,8 +17,6 @@ import java.util.Date;
 public class Student {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
-
-
     private String nome;
     private String email;
     private String login;
@@ -37,4 +35,13 @@ public class Student {
         this.biografia = requestStudentDTO.biografia();
 
     }
+    public Student (RequestStudentPutDTO requestStudentPutDTO){
+        this.email = requestStudentPutDTO.email();
+        this.senha = requestStudentPutDTO.senha();
+    }
 }
+
+
+
+
+
