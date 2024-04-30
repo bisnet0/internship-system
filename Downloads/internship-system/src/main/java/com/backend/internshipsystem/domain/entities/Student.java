@@ -1,5 +1,7 @@
-package com.backend.internshipsystem.domain;
+package com.backend.internshipsystem.domain.entities;
 
+import com.backend.internshipsystem.domain.RequestStudentDTO;
+import com.backend.internshipsystem.domain.RequestStudentPutDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

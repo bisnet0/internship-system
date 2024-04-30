@@ -1,7 +1,7 @@
 package com.backend.internshipsystem.controllers;
 import com.backend.internshipsystem.domain.RequestStudentDTO;
 import com.backend.internshipsystem.domain.RequestStudentPutDTO;
-import com.backend.internshipsystem.domain.Student;
+import com.backend.internshipsystem.domain.entities.Student;
 import com.backend.internshipsystem.domain.StudentRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -49,9 +49,8 @@ public class StudentController {
 	@Transactional
 	public ResponseEntity deleteStudent(@PathVariable String id){
 		Optional<Student> student = repository.findById(id);
-		Boolean active = true;
 		if(student.isPresent()){
-			active = false;
+			repository.deleteById(id);
 			return ResponseEntity.noContent().build();
 		}else{
 			throw new EntityNotFoundException();
