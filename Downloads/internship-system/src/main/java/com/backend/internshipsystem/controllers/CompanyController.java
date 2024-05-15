@@ -1,8 +1,7 @@
 package com.backend.internshipsystem.controllers;
 
-import com.backend.internshipsystem.domain.CompanyRepository;
-import com.backend.internshipsystem.domain.RequestCompanyDTO;
-import com.backend.internshipsystem.domain.RequestStudentPutDTO;
+import com.backend.internshipsystem.domain.repositories.CompanyRepository;
+import com.backend.internshipsystem.domain.dto.RequestCompanyDTO;
 import com.backend.internshipsystem.domain.entities.Company;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -41,8 +40,6 @@ public class CompanyController {
         if (company.isPresent()){
             company.get().setNome(data.nome());
             company.get().setEmail(data.email());
-            company.get().setLogin(data.login());
-            company.get().setSenha(data.senha());
             company.get().setBiografia(data.biografia());
             company.get().setRazao_social(data.razao_social());
             company.get().setCnpj(data.cnpj());

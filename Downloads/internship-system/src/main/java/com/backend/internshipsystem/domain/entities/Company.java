@@ -1,6 +1,6 @@
 package com.backend.internshipsystem.domain.entities;
 
-import com.backend.internshipsystem.domain.RequestCompanyDTO;
+import com.backend.internshipsystem.domain.dto.RequestCompanyDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -17,8 +17,6 @@ public class Company {
     private String id;
     private String nome;
     private String email;
-    private String login;
-    private String senha;
     private String biografia;
     private String razao_social;
     private String cnpj;
@@ -27,8 +25,6 @@ public class Company {
     public Company (RequestCompanyDTO requestCompanyDTO){
         this.nome = requestCompanyDTO.nome();
         this.email = requestCompanyDTO.email();
-        this.login = requestCompanyDTO.login();
-        this.senha = requestCompanyDTO.senha();
         this.biografia = requestCompanyDTO.biografia();
         this.razao_social = requestCompanyDTO.razao_social();
         this.cnpj = requestCompanyDTO.cnpj();

@@ -1,4 +1,4 @@
-package com.backend.internshipsystem.domain;
+package com.backend.internshipsystem.domain.repositories;
 
 import com.backend.internshipsystem.domain.entities.Company;
 import org.springframework.data.jpa.repository.JpaRepository;

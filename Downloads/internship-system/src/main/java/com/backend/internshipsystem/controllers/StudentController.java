@@ -1,8 +1,7 @@
 package com.backend.internshipsystem.controllers;
-import com.backend.internshipsystem.domain.RequestStudentDTO;
-import com.backend.internshipsystem.domain.RequestStudentPutDTO;
+import com.backend.internshipsystem.domain.dto.RequestStudentDTO;
 import com.backend.internshipsystem.domain.entities.Student;
-import com.backend.internshipsystem.domain.StudentRepository;
+import com.backend.internshipsystem.domain.repositories.StudentRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
@@ -34,11 +33,14 @@ public class StudentController {
 
 	@PutMapping
 	@Transactional
-	public ResponseEntity  updateStudent(@RequestBody @Valid RequestStudentPutDTO data){
+	public ResponseEntity  updateStudent(@RequestBody @Valid RequestStudentDTO data){
 		Optional<Student> student = repository.findById(data.id());
 		if(student.isPresent()){
+			student.get().setNome(data.nome());
 			student.get().setEmail(data.email());
-			student.get().setSenha(data.senha());
+			student.get().setMatricula(data.matricula());
+			student.get().setData_nascimento(data.data_nascimento());
+			student.get().setBiografia(data.biografia());
 			return ResponseEntity.ok(student);
 		}else{
 			throw new EntityNotFoundException();
