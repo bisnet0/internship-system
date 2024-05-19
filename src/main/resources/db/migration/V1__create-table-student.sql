@@ -1,8 +1,7 @@
 CREATE TABLE student (
-  id SERIAL PRIMARY KEY UNIQUE NOT NULL,
+  id UUID PRIMARY KEY UNIQUE NOT NULL,
   nome TEXT NOT NULL,
-  email TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
   matricula INT UNIQUE NOT NULL,
-  data_nascimento DATE NOT NULL,
-  biografia TEXT NOT NULL
+  data_nascimento DATE NOT NULL
 );

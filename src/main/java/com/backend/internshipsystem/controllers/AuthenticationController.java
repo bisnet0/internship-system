@@ -9,6 +9,7 @@ import com.backend.internshipsystem.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.aspectj.apache.bcel.Repository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -31,19 +32,32 @@ public class AuthenticationController {
     private TokenService tokenService;
 
     @PostMapping("/login")
-    public ResponseEntity login (@RequestBody @Valid AuthenticationDTO data){
-        var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.senha());
-        var auth = this.authenticationManager.authenticate(usernamePassword);
-        var token = tokenService.generateToken((User)auth.getPrincipal());
+    public ResponseEntity<?> login (@RequestBody @Valid AuthenticationDTO data){
+        try{
+            var usernamePassword = new UsernamePasswordAuthenticationToken(data.login(), data.senha());
+            var auth = this.authenticationManager.authenticate(usernamePassword);
+            var token = tokenService.generateToken((User)auth.getPrincipal());
 
-        return ResponseEntity.ok(new LoginResponseDTO(token));
+            return ResponseEntity.ok(new LoginResponseDTO(token));
+
+        }catch (Exception e) {
+            System.out.println("Failed to authenticate user: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Failed to authenticate user");
+        }
     }
     @PostMapping("/register")
-    public ResponseEntity register (@RequestBody @Valid RegisterAuthDTO data){
-        if(this.repository.findByLogin(data.login()) !=null) return ResponseEntity.badRequest().build();
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
-        User newUser = new User(data.login(), encryptedPassword, data.role());
-        this.repository.save(newUser);
-        return ResponseEntity.ok().build();
+    public ResponseEntity<?> register (@RequestBody @Valid RegisterAuthDTO data) {
+        if (this.repository.findByLogin(data.login()) != null) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("User with this login already exists");
+        }
+        try {
+            String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
+            User newUser = new User(data.login(), encryptedPassword, data.role());
+            this.repository.save(newUser);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            System.out.println("Failed to register user: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Failed to register user");
+        }
     }
 }

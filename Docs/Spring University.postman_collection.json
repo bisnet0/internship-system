@@ -1,0 +1,467 @@
+{
+	"info": {
+		"_postman_id": "d90aa8de-1d8c-4b1a-af14-d6253769f744",
+		"name": "Spring University",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34794891"
+	},
+	"item": [
+		{
+			"name": "Application",
+			"item": [
+				{
+					"name": "Save Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTQwMzk3fQ.k7Om7wSuHwk4aBLXIrYkDANoj1oAkmgq8kr7xAtaQhU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"student\": {\n        \"id\": \"a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11\"\n    },\n    \"internship\": {\n        \"id\": \"e0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15\"\n    },\n    \"description\": \"Description for Application One\",\n    \"expirationDate\": \"2024-05-19\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/application",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Application",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUxNDQxfQ.DrDpfPYYRCsLJr1Ltm3ZTmL1HnRYtJI33uRz1MC--PM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/application",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTQwMzk3fQ.k7Om7wSuHwk4aBLXIrYkDANoj1oAkmgq8kr7xAtaQhU",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": \"a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a17\",\n    \"student\": {\n        \"id\": \"a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11\"\n    },\n    \"internship\": {\n        \"id\": \"e0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15\"\n    },\n    \"description\": \"Updated Description for Application One\",\n    \"expirationDate\": \"2024-06-19\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/application",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"application"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUwMzc5fQ.nB5j_6x_mf8ZFn2Dr2TGE82Oljy-OHmFUvP6mHBYbBM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/application/a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a17",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"application",
+								"a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a17"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUwMzc5fQ.nB5j_6x_mf8ZFn2Dr2TGE82Oljy-OHmFUvP6mHBYbBM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/application/b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a18",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"application",
+								"b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a18"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Filtered All Application",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUxNDQxfQ.DrDpfPYYRCsLJr1Ltm3ZTmL1HnRYtJI33uRz1MC--PM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/application?studentId=a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11&internshipId=e0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"application"
+							],
+							"query": [
+								{
+									"key": "studentId",
+									"value": "a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11"
+								},
+								{
+									"key": "internshipId",
+									"value": "e0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"admin\",\n    \"senha\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/login",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"login\": \"user\",\n    \"senha\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/auth/register",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Internship",
+			"item": [
+				{
+					"name": "Save Internship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUxNDQxfQ.DrDpfPYYRCsLJr1Ltm3ZTmL1HnRYtJI33uRz1MC--PM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"title\": \"Internship Three\",\n        \"description\": \"Description for Internship Three\",\n        \"company\": {\n            \"id\": \"c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a13\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/internship",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"internship"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "All Internships",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUxNDQxfQ.DrDpfPYYRCsLJr1Ltm3ZTmL1HnRYtJI33uRz1MC--PM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/internship",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"internship"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Internship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUxNDQxfQ.DrDpfPYYRCsLJr1Ltm3ZTmL1HnRYtJI33uRz1MC--PM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"id\": \"b0140a9b-c878-46b9-9f70-0c9f62bc97fe\",\n        \"title\": \"Internship Three\",\n        \"description\": \"Updated Description for Internship Three\",\n        \"company\": {\n            \"id\": \"c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a13\"\n        }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/internship",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"internship"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Internship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUxNDQxfQ.DrDpfPYYRCsLJr1Ltm3ZTmL1HnRYtJI33uRz1MC--PM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/internship/b0140a9b-c878-46b9-9f70-0c9f62bc97fe",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"internship",
+								"b0140a9b-c878-46b9-9f70-0c9f62bc97fe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Internship",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJhdXRoLWFwaSIsInN1YiI6ImFkbWluIiwiZXhwIjoxNzE2MTUwMzc5fQ.nB5j_6x_mf8ZFn2Dr2TGE82Oljy-OHmFUvP6mHBYbBM",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/internship/f0eebc99-9c0b-4ef8-bb6d-6bb9bd380a16",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"internship",
+								"f0eebc99-9c0b-4ef8-bb6d-6bb9bd380a16"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Students",
+			"item": []
+		}
+	]
+}
