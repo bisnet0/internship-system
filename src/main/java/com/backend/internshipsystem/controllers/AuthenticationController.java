@@ -26,6 +26,8 @@ public class AuthenticationController {
 
     @Autowired
     private UserRepository repository;
+
+    @Autowired
     private TokenService tokenService;
 
     @PostMapping("/login")
@@ -36,7 +38,7 @@ public class AuthenticationController {
 
         return ResponseEntity.ok(new LoginResponseDTO(token));
     }
-    @PostMapping("/Register")
+    @PostMapping("/register")
     public ResponseEntity register (@RequestBody @Valid RegisterAuthDTO data){
         if(this.repository.findByLogin(data.login()) !=null) return ResponseEntity.badRequest().build();
         String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
