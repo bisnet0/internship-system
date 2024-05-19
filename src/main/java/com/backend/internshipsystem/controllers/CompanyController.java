@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/company")
@@ -36,12 +37,11 @@ public class CompanyController {
     @PutMapping
     @Transactional
     public ResponseEntity updateCompany (@RequestBody @Valid RequestCompanyDTO data){
-        Optional <Company> company = companyRepository.findById(data.id());
+        UUID uuid = UUID.fromString(data.id());
+        Optional <Company> company = companyRepository.findById(uuid);
         if (company.isPresent()){
             company.get().setNome(data.nome());
             company.get().setEmail(data.email());
-            company.get().setBiografia(data.biografia());
-            company.get().setRazao_social(data.razao_social());
             company.get().setCnpj(data.cnpj());
             return ResponseEntity.ok(company);
         }else{
@@ -51,9 +51,10 @@ public class CompanyController {
     @Transactional
     @DeleteMapping("/{id}")
     public ResponseEntity deleteCompany (@PathVariable String id){
-        Optional <Company> company = companyRepository.findById(id);
+        UUID uuid = UUID.fromString(id);
+        Optional <Company> company = companyRepository.findById(uuid);
         if(company.isPresent()){
-            companyRepository.deleteById(id);
+            companyRepository.deleteById(uuid);
             return ResponseEntity.noContent().build();
         }else{
             throw new EntityNotFoundException();

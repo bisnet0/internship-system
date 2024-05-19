@@ -5,6 +5,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.Date;
+import java.util.UUID;
 
 @Table(name = "student")
 @Entity(name= "student")
@@ -17,19 +18,17 @@ import java.util.Date;
 
 public class Student {
     @Id @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
     private String nome;
     private String email;
     private int matricula;
     private Date data_nascimento;
-    private String biografia;
 
     public Student(RequestStudentDTO requestStudentDTO){
         this.nome = requestStudentDTO.nome();
         this.email = requestStudentDTO.email();
         this.matricula = requestStudentDTO.matricula();
         this.data_nascimento = requestStudentDTO.data_nascimento();
-        this.biografia = requestStudentDTO.biografia();
 
     }
 }

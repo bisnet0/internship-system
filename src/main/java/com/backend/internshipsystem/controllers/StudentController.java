@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
+import java.util.UUID;
 
 
 @RestController
@@ -34,13 +35,12 @@ public class StudentController {
 	@PutMapping
 	@Transactional
 	public ResponseEntity  updateStudent(@RequestBody @Valid RequestStudentDTO data){
-		Optional<Student> student = repository.findById(data.id());
+		Optional<Student> student = repository.findById(UUID.fromString(data.id()));
 		if(student.isPresent()){
 			student.get().setNome(data.nome());
 			student.get().setEmail(data.email());
 			student.get().setMatricula(data.matricula());
 			student.get().setData_nascimento(data.data_nascimento());
-			student.get().setBiografia(data.biografia());
 			return ResponseEntity.ok(student);
 		}else{
 			throw new EntityNotFoundException();
@@ -49,7 +49,7 @@ public class StudentController {
 
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity deleteStudent(@PathVariable String id){
+	public ResponseEntity deleteStudent(@PathVariable UUID id){
 		Optional<Student> student = repository.findById(id);
 		if(student.isPresent()){
 			repository.deleteById(id);
