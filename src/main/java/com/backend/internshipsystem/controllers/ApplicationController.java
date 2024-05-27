@@ -63,7 +63,6 @@ public class ApplicationController {
                     application.setStudent(updatedApplication.getStudent());
                     application.setInternship(updatedApplication.getInternship());
                     application.setDescription(updatedApplication.getDescription());
-                    application.setExpirationDate(updatedApplication.getExpirationDate());
                     return ResponseEntity.ok(application);
                 })
                 .orElseGet(() -> ResponseEntity.notFound().build());

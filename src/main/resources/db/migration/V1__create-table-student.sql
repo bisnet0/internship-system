@@ -1,7 +1,0 @@
-CREATE TABLE student (
-  id UUID PRIMARY KEY UNIQUE NOT NULL,
-  nome TEXT NOT NULL,
-  email TEXT NOT NULL UNIQUE,
-  matricula INT UNIQUE NOT NULL,
-  data_nascimento DATE NOT NULL
-);

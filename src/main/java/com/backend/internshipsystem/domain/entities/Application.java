@@ -11,7 +11,7 @@ import java.util.UUID;
  * Represents an application for an internship by a student.
  */
 @Entity
-@Table(name = "application")
+@Table(name = "applications")
 @Data
 public class Application {
     @Id
@@ -28,8 +28,4 @@ public class Application {
 
     @NotNull
     private String description;
-
-    @NotNull
-    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
-    private LocalDateTime expirationDate;
 }

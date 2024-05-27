@@ -1,0 +1,9 @@
+CREATE TABLE students (
+  id UUID PRIMARY KEY UNIQUE NOT NULL,
+  nome TEXT NOT NULL,
+  email TEXT NOT NULL UNIQUE,
+  matricula INT UNIQUE NOT NULL,
+  data_nascimento DATE NOT NULL,
+  user_id UUID NOT NULL,
+  FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
