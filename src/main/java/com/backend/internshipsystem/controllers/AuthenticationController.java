@@ -3,7 +3,9 @@ package com.backend.internshipsystem.controllers;
 import com.backend.internshipsystem.domain.dto.AuthenticationDTO;
 import com.backend.internshipsystem.domain.dto.LoginResponseDTO;
 import com.backend.internshipsystem.domain.dto.RegisterAuthDTO;
+import com.backend.internshipsystem.domain.entities.Student;
 import com.backend.internshipsystem.domain.entities.User;
+import com.backend.internshipsystem.domain.repositories.StudentRepository;
 import com.backend.internshipsystem.domain.repositories.UserRepository;
 import com.backend.internshipsystem.infra.security.TokenService;
 import jakarta.validation.Valid;
@@ -31,6 +33,9 @@ public class AuthenticationController {
     @Autowired
     private TokenService tokenService;
 
+    @Autowired
+    private StudentRepository studentRepository;
+
     @PostMapping("/login")
     public ResponseEntity<?> login (@RequestBody @Valid AuthenticationDTO data){
         try{
@@ -54,6 +59,10 @@ public class AuthenticationController {
             String encryptedPassword = new BCryptPasswordEncoder().encode(data.senha());
             User newUser = new User(data.login(), encryptedPassword, data.role());
             this.repository.save(newUser);
+
+            Student newStudent = new Student(data.nome(), data.email(), data.matricula(), data.data_nascimento(), newUser);
+            this.studentRepository.save(newStudent);
+
             return ResponseEntity.ok().build();
         } catch (Exception e) {
             System.out.println("Failed to register user: " + e.getMessage());

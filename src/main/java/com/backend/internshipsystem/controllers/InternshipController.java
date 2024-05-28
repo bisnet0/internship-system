@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -18,7 +19,7 @@ public class InternshipController {
     private InternshipRepository internshipRepository;
 
     @GetMapping
-    public ResponseEntity getAllInternships (){
+    public ResponseEntity<List<Internship>> getAllInternships (){
         var allInternships = internshipRepository.findAll();
         return ResponseEntity.ok(allInternships);
     }
@@ -44,6 +45,10 @@ public class InternshipController {
             internship.get().setTitle(updatedInternship.getTitle());
             internship.get().setDescription(updatedInternship.getDescription());
             internship.get().setCompany(updatedInternship.getCompany());
+            internship.get().setExpirationDate(updatedInternship.getExpirationDate());
+            internship.get().setRemote(updatedInternship.getRemote());
+            internship.get().setSalary(updatedInternship.getSalary());
+            this.internshipRepository.save(internship.get());
             return ResponseEntity.ok(internship);
         }else{
             throw new EntityNotFoundException();

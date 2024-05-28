@@ -1,5 +1,6 @@
 package com.backend.internshipsystem.domain.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 import org.springframework.security.core.GrantedAuthority;
@@ -18,9 +19,10 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class User implements UserDetails {
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
+    @Id @GeneratedValue(strategy = GenerationType.UUID) @JsonIgnore
     private UUID id;
     private String login;
+    @JsonIgnore
     private String senha;
     private UserRole role;
 

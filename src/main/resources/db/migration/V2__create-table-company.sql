@@ -1,4 +1,4 @@
-CREATE TABLE company (
+CREATE TABLE companys (
     id UUID PRIMARY KEY UNIQUE NOT NULL,
     nome TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
