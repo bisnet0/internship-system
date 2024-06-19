@@ -14,9 +14,8 @@ import java.util.UUID;
 @Table(name = "applications")
 @Data
 public class Application {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name="studentId", nullable=false)

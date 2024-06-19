@@ -1,5 +1,5 @@
 CREATE TABLE internships(
-   id UUID PRIMARY KEY UNIQUE NOT NULL,
+   id SERIAL PRIMARY KEY,
    title TEXT NOT NULL,
    description TEXT NOT NULL,
    company_id INT NOT NULL,

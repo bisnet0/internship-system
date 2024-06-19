@@ -23,11 +23,16 @@ public class ApplicationController {
     @GetMapping
     public ResponseEntity<List<Application>> getAllApplications (
             @RequestParam(value = "studentId", required = false) Long studentId,
-            @RequestParam(value = "internshipId", required = false) UUID internshipId
+            @RequestParam(value = "internshipId", required = false) Long internshipId
     ){
         List<Application> applications;
-
-        if (studentId != null) {
+        if (studentId != null && internshipId != null) {
+            Student student = new Student();
+            student.setId(studentId);
+            Internship internship = new Internship();
+            internship.setId(internshipId);
+            applications = applicationRepository.findByInternshipAndStudent(internship, student);
+        } else if (studentId != null) {
             Student student = new Student();
             student.setId(studentId);
             applications = applicationRepository.findByStudent(student);
@@ -43,7 +48,7 @@ public class ApplicationController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Application> getApplication (@PathVariable UUID id){
+    public ResponseEntity<Application> getApplication (@PathVariable Long id){
         return applicationRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -70,7 +75,7 @@ public class ApplicationController {
 
     @Transactional
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteApplication (@PathVariable UUID id){
+    public ResponseEntity<?> deleteApplication (@PathVariable Long id){
         return applicationRepository.findById(id)
                 .map(application -> {
                     applicationRepository.deleteById(id);

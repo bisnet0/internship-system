@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.UUID;
 
-public interface InternshipRepository extends JpaRepository<Internship, UUID> {
+public interface InternshipRepository extends JpaRepository<Internship, Long> {
     List<Internship> findAllByCity(@NotNull String city);
     List<Internship> findAllByRemote(@NotNull Boolean remote);
     List<Internship> findAllByShift(@NotNull String shift);

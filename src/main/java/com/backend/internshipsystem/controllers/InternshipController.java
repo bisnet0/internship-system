@@ -22,7 +22,7 @@ public class InternshipController {
 
     @GetMapping
     public ResponseEntity<List<Internship>> getAllInternships(
-            @RequestParam Optional<UUID> id,
+            @RequestParam Optional<Long> id,
             @RequestParam Optional<String> title,
             @RequestParam Optional<UUID> company_id,
             @RequestParam Optional<Double> salary,
@@ -75,7 +75,7 @@ public class InternshipController {
 
 
     @GetMapping("/{id}")
-    public ResponseEntity<Internship> getInternship(@PathVariable UUID id){
+    public ResponseEntity<Internship> getInternship(@PathVariable Long id){
         return internshipRepository.findById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
@@ -109,7 +109,7 @@ public class InternshipController {
 
     @Transactional
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteInternship (@PathVariable UUID id){
+    public ResponseEntity deleteInternship (@PathVariable Long id){
         Optional<Internship> internship = internshipRepository.findById(id);
         if(internship.isPresent()){
             internshipRepository.deleteById(id);
