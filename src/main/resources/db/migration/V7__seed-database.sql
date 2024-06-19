@@ -1,11 +1,11 @@
 INSERT INTO users (id, login, senha, role) VALUES
-    ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a19', 'john_doe', '$2a$10$VX8GUkTvcte/xa0bfVvsaOo6ucw7fomAQw/jJd8RXbImgTxvrRYaG', 1),
-    ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a20', 'jane_doe', '$2a$10$VX8GUkTvcte/xa0bfVvsaOo6ucw7fomAQw/jJd8RXbImgTxvrRYaG', 1);
+    (1, 'john_doe', '$2a$10$VX8GUkTvcte/xa0bfVvsaOo6ucw7fomAQw/jJd8RXbImgTxvrRYaG', 1),
+    (2, 'jane_doe', '$2a$10$VX8GUkTvcte/xa0bfVvsaOo6ucw7fomAQw/jJd8RXbImgTxvrRYaG', 1);
 
 -- Seed data for student table
 INSERT INTO students (id, nome, email, matricula, data_nascimento, user_id) VALUES
-    ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'John Doe', 'john.doe@example.com', 123456, '2000-01-01', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a19'),
-    ('b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'Jane Doe', 'jane.doe@example.com', 123457, '2001-02-02', 'a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a20');
+    ('a0eebc99-9c0b-4ef8-bb6d-6bb9bd380a11', 'John Doe', 'john.doe@example.com', 123456, '2000-01-01', 1),
+    ('b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a12', 'Jane Doe', 'jane.doe@example.com', 123457, '2001-02-02', 2);
 
 -- Seed data for company table
 INSERT INTO companys (id, nome, email, cnpj) VALUES
