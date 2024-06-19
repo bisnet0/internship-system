@@ -13,9 +13,9 @@ INSERT INTO companys (id, nome, email, cnpj) VALUES
     ('d0eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 'Company Two', 'company.two@example.com', '98.765.432/0001-10');
 
 -- Seed data for internship table
-INSERT INTO internships (id, title, description, company_id, salary, expiration_date, remote) VALUES
-    ('e0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'Internship One', 'Description for Internship One', 'c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a13', 1600.00, '2024-05-19', TRUE),
-    ('f0eebc99-9c0b-4ef8-bb6d-6bb9bd380a16', 'Internship Two', 'Description for Internship Two', 'd0eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 1000.00, '2024-05-20', FALSE);
+INSERT INTO internships (id, title, description, company_id, salary, expiration_date, remote, city, shift) VALUES
+    ('e0eebc99-9c0b-4ef8-bb6d-6bb9bd380a15', 'Internship One', 'Description for Internship One', 'c0eebc99-9c0b-4ef8-bb6d-6bb9bd380a13', 1600.00, '2024-05-19', TRUE, 'Feira de Santana', 'Noturno'),
+    ('f0eebc99-9c0b-4ef8-bb6d-6bb9bd380a16', 'Internship Two', 'Description for Internship Two', 'd0eebc99-9c0b-4ef8-bb6d-6bb9bd380a14', 1000.00, '2024-05-20', FALSE, 'Feira de Santana', 'Diurno');
 
 -- Seed data for application table
 INSERT INTO applications (id, student_id, internship_id, description) VALUES

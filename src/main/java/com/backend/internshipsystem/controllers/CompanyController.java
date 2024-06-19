@@ -26,6 +26,23 @@ public class CompanyController {
 
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getCompany(@PathVariable String id) {
+        try {
+            UUID uuid = UUID.fromString(id);
+            Optional<Company> company = companyRepository.findById(uuid);
+
+            if (company.isPresent()) {
+                return ResponseEntity.ok(company.get());
+            } else {
+                return ResponseEntity.notFound().build();
+            }
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.badRequest().body("Invalid UUID format");
+        }
+    }
+
+
     @PostMapping
     public ResponseEntity registerCompany (@RequestBody @Valid RequestCompanyDTO data){
         Company company = new Company(data);

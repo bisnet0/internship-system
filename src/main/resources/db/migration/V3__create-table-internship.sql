@@ -3,6 +3,8 @@ CREATE TABLE internships(
    title TEXT NOT NULL,
    description TEXT NOT NULL,
    company_id UUID NOT NULL,
+   city TEXT NOT NULL,
+   shift TEXT NOT NULL,
    salary DECIMAL NOT NULL,
    expiration_date DATE NOT NULL,
    remote BOOLEAN,

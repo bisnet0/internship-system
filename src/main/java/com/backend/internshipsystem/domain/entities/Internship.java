@@ -31,6 +31,10 @@ public class Internship {
     private LocalDateTime expirationDate;
     @NotNull
     private Boolean remote;
+    @NotNull
+    private String city;
+    @NotNull
+    private String shift;
 
     @ManyToOne
     @JoinColumn(name="company_id", nullable=false)
