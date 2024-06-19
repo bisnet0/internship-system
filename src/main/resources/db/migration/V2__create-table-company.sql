@@ -1,6 +1,6 @@
 CREATE TABLE companys (
-    id UUID PRIMARY KEY UNIQUE NOT NULL,
-    nome TEXT NOT NULL,
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
     email TEXT NOT NULL UNIQUE,
     cnpj TEXT NOT NULL UNIQUE
 );

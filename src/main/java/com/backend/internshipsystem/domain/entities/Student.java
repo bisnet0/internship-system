@@ -18,12 +18,13 @@ import java.util.UUID;
 
 
 public class Student {
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-    private String nome;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
     private String email;
-    private int matricula;
-    private Date data_nascimento;
+    private int enrollment;
+    @Column(name = "birth_date")
+    private Date birthDate;
 
     @OneToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
@@ -31,19 +32,19 @@ public class Student {
     private User user;
 
     public Student(RequestStudentDTO requestStudentDTO){
-        this.nome = requestStudentDTO.nome();
+        this.name = requestStudentDTO.name();
         this.email = requestStudentDTO.email();
-        this.matricula = requestStudentDTO.matricula();
-        this.data_nascimento = requestStudentDTO.data_nascimento();
+        this.enrollment = requestStudentDTO.enrollment();
+        this.birthDate = requestStudentDTO.birthDate();
         this.user = (requestStudentDTO.user());
 
     }
 
-    public Student(String nome, String email, int matricula, Date date, User newUser) {
-        this.nome = nome;
+    public Student(String nome, String email, int enrollment, Date birthDate, User newUser) {
+        this.name = nome;
         this.email = email;
-        this.matricula = matricula;
-        this.data_nascimento = date;
+        this.enrollment = enrollment;
+        this.birthDate = birthDate;
         this.user = newUser;
     }
 }

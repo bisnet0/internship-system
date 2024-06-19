@@ -15,15 +15,15 @@ import java.util.UUID;
 @EqualsAndHashCode(of = "id")
 
 public class Company {
-    @Id @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
-    private String nome;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String name;
     private String email;
     private String cnpj;
 
 
     public Company (RequestCompanyDTO requestCompanyDTO){
-        this.nome = requestCompanyDTO.nome();
+        this.name = requestCompanyDTO.name();
         this.email = requestCompanyDTO.email();
         this.cnpj = requestCompanyDTO.cnpj();
     }

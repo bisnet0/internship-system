@@ -19,8 +19,8 @@ import java.util.UUID;
 @NoArgsConstructor
 @EqualsAndHashCode
 public class User implements UserDetails {
-    @Id @GeneratedValue(strategy = GenerationType.UUID) @JsonIgnore
-    private UUID id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) @JsonIgnore
+    private Long id;
     private String login;
     @JsonIgnore
     private String senha;

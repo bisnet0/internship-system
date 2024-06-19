@@ -3,12 +3,10 @@ package com.backend.internshipsystem.domain.dto;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
-public record RequestCompanyDTO(String id,
+public record RequestCompanyDTO(Long id,
                                 @NotBlank
-                                String nome,
+                                String name,
                                 String email,
-                                String biografia,
-                                String razao_social,
                                 @NotNull
                                 String cnpj) {
 }

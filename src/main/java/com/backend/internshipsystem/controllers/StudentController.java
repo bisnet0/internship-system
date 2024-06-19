@@ -35,12 +35,12 @@ public class StudentController {
 	@PutMapping
 	@Transactional
 	public ResponseEntity  updateStudent(@RequestBody @Valid RequestStudentDTO data){
-		Optional<Student> student = repository.findById(UUID.fromString(data.id()));
+		Optional<Student> student = repository.findById(data.id());
 		if(student.isPresent()){
-			student.get().setNome(data.nome());
+			student.get().setName(data.name());
 			student.get().setEmail(data.email());
-			student.get().setMatricula(data.matricula());
-			student.get().setData_nascimento(data.data_nascimento());
+			student.get().setEnrollment(data.enrollment());
+			student.get().setBirthDate(data.birthDate());
 			return ResponseEntity.ok(student);
 		}else{
 			throw new EntityNotFoundException();
@@ -49,7 +49,7 @@ public class StudentController {
 
 	@DeleteMapping("/{id}")
 	@Transactional
-	public ResponseEntity deleteStudent(@PathVariable UUID id){
+	public ResponseEntity deleteStudent(@PathVariable Long id){
 		Optional<Student> student = repository.findById(id);
 		if(student.isPresent()){
 			repository.deleteById(id);

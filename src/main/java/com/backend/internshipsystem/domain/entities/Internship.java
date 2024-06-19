@@ -17,9 +17,8 @@ import java.util.UUID;
 @AllArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Internship {
-    @Id
-    @GeneratedValue(strategy = GenerationType.UUID)
-    private UUID id;
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     @NotBlank
     private String title;
     @NotBlank
@@ -31,6 +30,10 @@ public class Internship {
     private LocalDateTime expirationDate;
     @NotNull
     private Boolean remote;
+    @NotNull
+    private String city;
+    @NotNull
+    private String shift;
 
     @ManyToOne
     @JoinColumn(name="company_id", nullable=false)

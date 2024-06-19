@@ -26,10 +26,20 @@ public class CompanyController {
 
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getCompany(@PathVariable Long id) {
+        Optional<Company> company = companyRepository.findById(id);
+        if (company.isPresent()) {
+            return ResponseEntity.ok(company.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
     @PostMapping
     public ResponseEntity registerCompany (@RequestBody @Valid RequestCompanyDTO data){
         Company company = new Company(data);
-        System.out.println(data);
         companyRepository.save(company);
         return ResponseEntity.ok().build();
     }
@@ -37,10 +47,10 @@ public class CompanyController {
     @PutMapping
     @Transactional
     public ResponseEntity updateCompany (@RequestBody @Valid RequestCompanyDTO data){
-        UUID uuid = UUID.fromString(data.id());
-        Optional <Company> company = companyRepository.findById(uuid);
+        Long id = data.id();
+        Optional <Company> company = companyRepository.findById(id);
         if (company.isPresent()){
-            company.get().setNome(data.nome());
+            company.get().setName(data.name());
             company.get().setEmail(data.email());
             company.get().setCnpj(data.cnpj());
             return ResponseEntity.ok(company);
@@ -48,13 +58,13 @@ public class CompanyController {
             throw new EntityNotFoundException();
         }
     }
+
     @Transactional
     @DeleteMapping("/{id}")
-    public ResponseEntity deleteCompany (@PathVariable String id){
-        UUID uuid = UUID.fromString(id);
-        Optional <Company> company = companyRepository.findById(uuid);
+    public ResponseEntity deleteCompany (@PathVariable Long id){
+        Optional <Company> company = companyRepository.findById(id);
         if(company.isPresent()){
-            companyRepository.deleteById(uuid);
+            companyRepository.deleteById(id);
             return ResponseEntity.noContent().build();
         }else{
             throw new EntityNotFoundException();
