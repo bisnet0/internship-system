@@ -22,7 +22,7 @@ public class ApplicationController {
 
     @GetMapping
     public ResponseEntity<List<Application>> getAllApplications (
-            @RequestParam(value = "studentId", required = false) UUID studentId,
+            @RequestParam(value = "studentId", required = false) Long studentId,
             @RequestParam(value = "internshipId", required = false) UUID internshipId
     ){
         List<Application> applications;

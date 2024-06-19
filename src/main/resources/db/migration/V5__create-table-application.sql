@@ -1,6 +1,6 @@
 CREATE TABLE applications (
     id UUID PRIMARY KEY UNIQUE NOT NULL,
-    student_id UUID NOT NULL,
+    student_id INT NOT NULL,
     internship_id UUID NOT NULL,
     description TEXT NOT NULL,
     FOREIGN KEY(student_id) REFERENCES students(id) ON DELETE CASCADE,

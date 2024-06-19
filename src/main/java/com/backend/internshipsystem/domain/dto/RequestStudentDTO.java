@@ -4,12 +4,12 @@ import jakarta.validation.constraints.NotBlank;
 
 import java.util.Date;
 
-public record RequestStudentDTO(String id,
-                                String nome,
+public record RequestStudentDTO(Long id,
+                                String name,
                                 @NotBlank
                                 String email,
-                                Integer matricula,
-                                Date data_nascimento,
+                                Integer enrollment,
+                                Date birthDate,
                                 User user) {
 }
 

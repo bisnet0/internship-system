@@ -15,7 +15,7 @@ public interface InternshipRepository extends JpaRepository<Internship, UUID> {
     List<Internship> findAllByRemote(@NotNull Boolean remote);
     List<Internship> findAllByShift(@NotNull String shift);
     List<Internship> findAllBySalary(@NotNull Double salary);
-    List<Internship> findAllByCompany_Id(@NotNull UUID companyId);
+    List<Internship> findAllByCompany_Id(@NotNull Long companyId);
     List<Internship> findAllByExpirationDate(@NotNull LocalDateTime expirationDate);
 
     List<Internship> findByIdIn(Collection<UUID> uniqueIds);
