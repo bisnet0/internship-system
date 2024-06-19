@@ -40,6 +40,8 @@ public class SecurityConfiguration {
                     .requestMatchers(SWAGGER_WHITELIST).permitAll()
                     .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                     .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/internship").permitAll()
+                    .requestMatchers(HttpMethod.GET, "/internship/{id}").permitAll()
                     .anyRequest().authenticated()
                 )
                 .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class);
