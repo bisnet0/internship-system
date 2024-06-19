@@ -2,7 +2,7 @@
 flyway -user=postgres -password=password -url=jdbc:postgresql://localhost:5432/mydatabase -locations=filesystem:src/main/resources/db/migration clean
 flyway -user=postgres -password=password -url=jdbc:postgresql://localhost:5432/mydatabase -locations=filesystem:src/main/resources/db/migration migrate
 
-
+Acessando o Swagger = http://localhost:8080/swagger-ui/index.html#
 ## Como rodar o projeto
 
 docker-compose up -d --build sobe o banco de dados
