@@ -214,4 +214,28 @@ Esses testes são essenciais para garantir a segurança e o comportamento corret
 
 ---
 
-Feito com ❤️ por [Sua Equipe].
+<h2 id="colab">🤝 Collaborators</h2>
+
+Pair programming do projeto.
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/BisNeT0">
+        <img src="https://avatars.githubusercontent.com/u/111530921?v=4" width="100px;" alt="Henrique Profile Picture"/><br>
+        <sub>
+          <b>Henrique Bisneto</b>
+        </sub>
+      </a>
+    </td>
+    </td>
+    <td align="center">
+      <a href="https://github.com/LimeHawk">
+        <img src="https://avatars.githubusercontent.com/u/96706378?s=400&u=c9ec291bbbb7ff2f92b39ba6350b6eb6894e7036&v=4" width="100px;" alt="Kaike Profile Picture"/><br>
+        <sub>
+          <b>Kaíke Falcão</b>
+        </sub>
+      </a>
+    </td> 
+  </tr>
+</table>
